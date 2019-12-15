@@ -1,0 +1,57 @@
+{
+  "name": "technoidentity-dev-utils",
+  "version": "1.2.19",
+  "description": "devlopment utils for all devfractal libs",
+  "main": "dist/index.js",
+  "module": "dist/technoidentity-dev-utils.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Pervez Iqbal",
+  "scripts": {
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "elint:fix": "yarn elint --quiet --fix",
+    "elint": "eslint './src/**/*.{js,ts,tsx}'",
+    "lib": "tsdx watch --tsconfig tsconfig.build.json",
+    "lint:fix": "yarn elint:fix && yarn tlint:fix",
+    "lint": "yarn elint && yarn tlint",
+    "server": "ts-node-dev --project tsconfig.tsnode.json src/app.ts",
+    "start": "parcel index.html --open",
+    "test:watch": "yarn test --watch",
+    "test": "cross-env NODE_ENV='test' jest --passWithNoTests",
+    "tlint:fix": "yarn lint --fix",
+    "tlint": "yarn tslint -p . -c tslint.json 'src/**/*.ts'",
+    "types:watch:verbose": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch --preserveWatchOutput",
+    "types:watch": "cross-env TSC_WATCHFILE=UseFsEventsWithFallbackDynamicPolling yarn types --watch",
+    "types": "tsc --noEmit -p .",
+    "validate:noFix": "yarn lint && yarn types && yarn test",
+    "validate": "yarn lint:fix && yarn types && yarn test"
+  },
+  "dependencies": {
+    "chance": "1.1.0",
+    "json-server": "0.15.1",
+    "@types/chance": "1.0.7",
+    "@types/json-server": "0.14.2",
+    "tcomb": "3.2.29",
+    "technoidentity-utils": "nandigamchandu/utils#1.2.19v",
+    "tslib": "1.10.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "2.7.0",
+    "@typescript-eslint/parser": "2.7.0",
+    "awesome-typescript-loader": "5.2.1",
+     "tslint-react": "4.1.0",
+    "cross-env": "6.0.0",
+    "jest": "24.9.0",
+    "parcel-bundler": "1.12.3",
+    "prettier": "1.18.2",
+    "ts-node-dev": "1.0.0-pre.40",
+    "tsdx": "0.9.2",
+    "tslint": "5.20.0",
+    "typescript": "3.6.3",
+     "tslint-config-prettier": "1.18.0",
+    "tslint-immutable": "6.0.1",
+     "typescript-tslint-plugin": "0.5.5"
+  }
+}
